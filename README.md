@@ -4,7 +4,10 @@ This is the code for the paper entitled "**[PWPAE: An Ensemble Framework for Con
 Authors: Li Yang, Dimitrios Michael Manias, and Abdallah Shami  
 Organization: The Optimized Computing and Communications (OC2) Lab, ECE Department, Western University
 
-![Alt Text]()
+<p float="left">
+  <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/IoTID20.png" width="480" />
+  <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/CICIDS2017.png" width="480" /> 
+</p>
 
 ## Abstract
 As the number of Internet of Things (IoT) devices and systems have surged, IoT data analytics techniques have been developed to detect malicious cyber-attacks and secure IoT systems; however, concept drift issues often occur in IoT data analytics, as IoT data is often dynamic data streams that change over time, causing model degradation and attack detection failure. This is because traditional data analytics models are static models that cannot adapt to data distribution changes. In this paper, we propose a Performance Weighted Probability Averaging Ensemble (PWPAE) framework for drift adaptive IoT anomaly detection through IoT data stream analytics. Experiments on two public datasets show the effectiveness of our proposed PWPAE method compared against state-of-the-art methods.
@@ -20,6 +23,14 @@ As the number of Internet of Things (IoT) devices and systems have surged, IoT d
 For the purpose of displaying the experimental results in Jupyter Notebook, the sampled subsets of the two datasets are used in the sample code. The subsets are in the "data" folder.
 
 ### Code  
+* [globecom2021_PWPAE_IoTID20.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_IoTID20.ipynb): code for the sampled IoTID20 dataset.  
+* [globecom2021_PWPAE_CICIDS2017.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_CICIDS2017.ipynb): code for the sampled CICIDS2017 dataset.
+
+### Requirements & Libraries  
+* Python 3.6+
+* [scikit-learn](https://scikit-learn.org/stable/)  
+* [LightGBM](https://lightgbm.readthedocs.io/en/latest/)
+* [river](https://riverml.xyz/dev/)
 
 ## Contact-Info
 Please feel free to contact us for any questions or cooperation opportunities. We will be happy to help.
