@@ -5,8 +5,8 @@ Authors: Li Yang, Dimitrios Michael Manias, and Abdallah Shami
 Organization: The Optimized Computing and Communications (OC2) Lab, ECE Department, Western University
 
 <p float="left">
-  <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/IoTID20.png" width="400" />
-  <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/CICIDS2017.png" width="400" /> 
+  <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/IoTID20.png" width="450" />
+  <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/CICIDS2017.png" width="450" /> 
 </p>
 
 ## Abstract
