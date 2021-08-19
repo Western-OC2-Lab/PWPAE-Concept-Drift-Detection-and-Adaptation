@@ -26,11 +26,24 @@ For the purpose of displaying the experimental results in Jupyter Notebook, the 
 * [globecom2021_PWPAE_IoTID20.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_IoTID20.ipynb): code for the sampled IoTID20 dataset.  
 * [globecom2021_PWPAE_CICIDS2017.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_CICIDS2017.ipynb): code for the sampled CICIDS2017 dataset.
 
+### Online Learning/Concept Drift Adaptation Algorithms  
+* Adaptive Random Forest (ARF)
+* Streaming Random Patches (SRP)
+* Extremely Fast Decision Tree (EFDT)
+* Hoeffding Tree (HT)
+* Leveraging Bagging (LB)
+* Performance Weighted Probability Averaging Ensemble (PWPAE)
+  * Proposed Method
+
+### Drift Detection Algorithms
+* Adaptive Windowing (ADWIN)
+* Drift Detection Method (DDM)
+
 ### Requirements & Libraries  
 * Python 3.6+
-* [scikit-learn](https://scikit-learn.org/stable/)  
+* [Scikit-learn](https://scikit-learn.org/stable/)  
 * [LightGBM](https://lightgbm.readthedocs.io/en/latest/)
-* [river](https://riverml.xyz/dev/)
+* [River](https://riverml.xyz/dev/)
 
 ## Contact-Info
 Please feel free to contact us for any questions or cooperation opportunities. We will be happy to help.
