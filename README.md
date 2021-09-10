@@ -20,7 +20,7 @@ As the number of Internet of Things (IoT) devices and systems have surged, IoT d
 2. CICIDS2017 dataset, a popular network traffic dataset for intrusion detection problems
    * Publicly available at: https://www.unb.ca/cic/datasets/ids-2017.html  
 
-For the purpose of displaying the experimental results in Jupyter Notebook, the sampled subsets of the two datasets are used in the sample code. The subsets are in the "data" folder.
+For the purpose of displaying the experimental results in Jupyter Notebook, the sampled subsets of the two datasets are used in the sample code. The subsets are in the "[data](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/tree/main/data)" folder.
 
 ### Code  
 * [globecom2021_PWPAE_IoTID20.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_IoTID20.ipynb): code for the sampled IoTID20 dataset.  
