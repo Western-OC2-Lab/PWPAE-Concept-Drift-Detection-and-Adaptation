@@ -1,6 +1,6 @@
 # PWPAE-Concept-Drift-Detection-and-Adaptation
 
-This is the code for the paper entitled "**[PWPAE: An Ensemble Framework for Concept Drift Adaptation in IoT Data Streams](https://arxiv.org/pdf/2104.10529.pdf)**" published in **2021 IEEE Global Communications Conference (GLOBECOM)**.  
+This is the code for the paper entitled "**[PWPAE: An Ensemble Framework for Concept Drift Adaptation in IoT Data Streams](https://arxiv.org/pdf/2109.05013.pdf)**" published in **2021 IEEE Global Communications Conference (GLOBECOM)**.  
 Authors: Li Yang, Dimitrios Michael Manias, and Abdallah Shami  
 Organization: The Optimized Computing and Communications (OC2) Lab, ECE Department, Western University
 
