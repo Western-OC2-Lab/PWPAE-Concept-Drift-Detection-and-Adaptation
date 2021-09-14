@@ -4,7 +4,8 @@ This is the code for the paper entitled "**[PWPAE: An Ensemble Framework for Con
 Authors: Li Yang, Dimitrios Michael Manias, and Abdallah Shami  
 Organization: The Optimized Computing and Communications (OC2) Lab, ECE Department, Western University
 
-This repository also introduces **concept drift definitions** and **online machine learning methods** for **data stream analytics**. 
+This repository also introduces **concept drift definitions** and **online machine learning methods** for **data stream analytics**.  
+Another **tutorial code** for **concept drift, online machine learning, and data stream analytics** can be found in: [OASW-Concept-Drift-Detection-and-Adaptation](https://github.com/Western-OC2-Lab/OASW-Concept-Drift-Detection-and-Adaptation)
 
 <p float="left">
   <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/IoTID20.png" width="470" />
