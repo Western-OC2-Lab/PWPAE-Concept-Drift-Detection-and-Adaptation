@@ -4,28 +4,39 @@ This is the code for the paper entitled "**[PWPAE: An Ensemble Framework for Con
 Authors: Li Yang, Dimitrios Michael Manias, and Abdallah Shami  
 Organization: The Optimized Computing and Communications (OC2) Lab, ECE Department, Western University
 
+This repository also introduces **concept drift definitions** and **online machine learning methods** for **data stream analytics**. 
+
 <p float="left">
   <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/IoTID20.png" width="470" />
   <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/CICIDS2017.png" width="470" /> 
 </p>
 
-## Abstract
+## Concept Drift
+In non-stationary and dynamical environments, such as IoT environments, the distribution of input data often changes over time, known as concept drift. The occurrence of concept drift will result in the performance degradation of the current trained data analytics model. Traditional offline machine learning (ML) models cannot deal with concept drift, making it necessary to develop online adaptive analytics models that can adapt to the predictable and unpredictable changes in data streams. 
+
+To address concept drift, effective methods should be able to detect concept drift and adapt to the changes accordingly. Therefore, concept drift detection and adaptation are the two major steps for online learning on data streams.
+
+### Drift Detection
+* [Adaptive Windowing (ADWIN)](https://riverml.xyz/dev/api/drift/ADWIN/) is a distribution-based method that uses an adaptive sliding window to detect concept drift based on data distribution changes. ADWIN identifies concept drift by calculating and analyzing the average of certain statistics over the two sub-windows of the adaptive window. The occurrence of concept drift is indicated by a large difference between the averages of the two sub-windows. Once a drift point is detected, all the old data samples before that drift time point are discarded.
+
+* [Drift Detection Method (DDM)](https://riverml.xyz/dev/api/drift/DDM/) is a popular model performance-based method that defines two thresholds, a warning level and a drift level, to monitor model's error rate and standard deviation changes for drift detection.
+
+### Drift Adaptation
+* [Hoeffding tree](https://riverml.xyz/dev/api/tree/HoeffdingTreeClassifier/) (HT) is a type of decision tree (DT) that uses the Hoeffding bound to incrementally adapt to data streams. Compared to a DT that chooses the best split, the HT uses the Hoeffding bound to calculate the number of necessary samples to select the split node. Thus, the HT can update its node to adapt to newly incoming samples.
+
+* [Extremely Fast Decision Tree (EFDT)](https://riverml.xyz/dev/api/tree/ExtremelyFastDecisionTreeClassifier/), also named Hoeffding Anytime Tree (HATT), is an improved version of the HT that splits nodes as soon as it reaches the confidence level instead of detecting the best split in the HT.
+
+* [Adaptive random forest (ARF)](https://riverml.xyz/dev/api/ensemble/AdaptiveRandomForestClassifier/) algorithm uses HTs as base learners and ADWIN as the drift detector for each tree to address concept drift. Through the drift detection process, the poor-performing base trees are replaced by new trees to fit the new concept.
+
+* [Streaming Random Patches (SRP)](https://riverml.xyz/dev/api/ensemble/SRPClassifier/) uses the similar technology of ARF, but it uses the global subspace randomization strategy, instead of the local subspace randomization technique used by ARF. The global subspace randomization is a more flexible method that improves the diversity of base learners.
+
+* [Leverage bagging (LB)](https://riverml.xyz/dev/api/ensemble/LeveragingBaggingClassifier/) is another popular online ensemble that uses bootstrap samples to construct base learners. It uses Poisson distribution to increase the data diversity and leverage the bagging performance.
+
+
+## Abstract of The Paper
 As the number of Internet of Things (IoT) devices and systems have surged, IoT data analytics techniques have been developed to detect malicious cyber-attacks and secure IoT systems; however, concept drift issues often occur in IoT data analytics, as IoT data is often dynamic data streams that change over time, causing model degradation and attack detection failure. This is because traditional data analytics models are static models that cannot adapt to data distribution changes. In this paper, we propose a Performance Weighted Probability Averaging Ensemble (PWPAE) framework for drift adaptive IoT anomaly detection through IoT data stream analytics. Experiments on two public datasets show the effectiveness of our proposed PWPAE method compared against state-of-the-art methods.
 
 ## Implementation 
-### Dataset 
-1. IoTID20 dataset, a novel IoT botnet dataset
-   * Publicly available at: https://sites.google.com/view/iot-network-intrusion-dataset/home
-
-2. CICIDS2017 dataset, a popular network traffic dataset for intrusion detection problems
-   * Publicly available at: https://www.unb.ca/cic/datasets/ids-2017.html  
-
-For the purpose of displaying the experimental results in Jupyter Notebook, the sampled subsets of the two datasets are used in the sample code. The subsets are in the "[data](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/tree/main/data)" folder.
-
-### Code  
-* [globecom2021_PWPAE_IoTID20.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_IoTID20.ipynb): code for the sampled IoTID20 dataset.  
-* [globecom2021_PWPAE_CICIDS2017.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_CICIDS2017.ipynb): code for the sampled CICIDS2017 dataset.
-
 ### Online Learning/Concept Drift Adaptation Algorithms  
 * Adaptive Random Forest (ARF)
 * Streaming Random Patches (SRP)
@@ -38,6 +49,19 @@ For the purpose of displaying the experimental results in Jupyter Notebook, the 
 ### Drift Detection Algorithms
 * Adaptive Windowing (ADWIN)
 * Drift Detection Method (DDM)
+
+### Dataset 
+1. IoTID20 dataset, a novel IoT botnet dataset
+   * Publicly available at: https://sites.google.com/view/iot-network-intrusion-dataset/home
+
+2. CICIDS2017 dataset, a popular network traffic dataset for intrusion detection problems
+   * Publicly available at: https://www.unb.ca/cic/datasets/ids-2017.html  
+
+For the purpose of displaying the experimental results in Jupyter Notebook, the sampled subsets of the two datasets are used in the sample code. The subsets are in the "[data](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/tree/main/data)" folder.
+
+### Code  
+* [globecom2021_PWPAE_IoTID20.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_IoTID20.ipynb): code for the sampled IoTID20 dataset.  
+* [globecom2021_PWPAE_CICIDS2017.ipynb](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/globecom2021_PWPAE_CICIDS2017.ipynb): code for the sampled CICIDS2017 dataset.
 
 ### Requirements & Libraries  
 * Python 3.6+
