@@ -20,18 +20,96 @@ To address concept drift, effective methods should be able to detect concept dri
 ### Drift Detection
 * [Adaptive Windowing (ADWIN)](https://riverml.xyz/dev/api/drift/ADWIN/) is a distribution-based method that uses an adaptive sliding window to detect concept drift based on data distribution changes. ADWIN identifies concept drift by calculating and analyzing the average of certain statistics over the two sub-windows of the adaptive window. The occurrence of concept drift is indicated by a large difference between the averages of the two sub-windows. Once a drift point is detected, all the old data samples before that drift time point are discarded.
 
+   * *Albert Bifet and Ricard Gavalda. "Learning from time-changing data with adaptive windowing." In Proceedings of the 2007 SIAM international conference on data mining, pp. 443-448. Society for Industrial and Applied Mathematics, 2007.*
+
+  ```python
+  from river.drift import ADWIN
+  adwin = ADWIN()
+  ```
+
 * [Drift Detection Method (DDM)](https://riverml.xyz/dev/api/drift/DDM/) is a popular model performance-based method that defines two thresholds, a warning level and a drift level, to monitor model's error rate and standard deviation changes for drift detection.
 
+   * *João Gama, Pedro Medas, Gladys Castillo, Pedro Pereira Rodrigues: Learning with Drift Detection. SBIA 2004: 286-295*
+
+  ```python
+  from river.drift import DDM
+  ddm = DDM()
+  ```
+
 ### Drift Adaptation
-* [Hoeffding tree](https://riverml.xyz/dev/api/tree/HoeffdingTreeClassifier/) (HT) is a type of decision tree (DT) that uses the Hoeffding bound to incrementally adapt to data streams. Compared to a DT that chooses the best split, the HT uses the Hoeffding bound to calculate the number of necessary samples to select the split node. Thus, the HT can update its node to adapt to newly incoming samples.
+* [Hoeffding tree (HT)](https://riverml.xyz/dev/api/tree/HoeffdingTreeClassifier/) is a type of decision tree (DT) that uses the Hoeffding bound to incrementally adapt to data streams. Compared to a DT that chooses the best split, the HT uses the Hoeffding bound to calculate the number of necessary samples to select the split node. Thus, the HT can update its node to adapt to newly incoming samples.
+  
+   * *G. Hulten, L. Spencer, and P. Domingos. Mining time-changing data streams. In KDD’01, pages 97–106, San Francisco, CA, 2001. ACM Press.*
+  
+  ```python
+  from river import tree
+  model = tree.HoeffdingTreeClassifier(
+       grace_period=100,
+       split_confidence=1e-5,
+       ...
+  )
+  ```
 
 * [Extremely Fast Decision Tree (EFDT)](https://riverml.xyz/dev/api/tree/ExtremelyFastDecisionTreeClassifier/), also named Hoeffding Anytime Tree (HATT), is an improved version of the HT that splits nodes as soon as it reaches the confidence level instead of detecting the best split in the HT.
+  
+   * *C. Manapragada, G. Webb, and M. Salehi. Extremely Fast Decision Tree. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD '18). ACM, New York, NY, USA, 1953-1962, 2018.*
+  
+  ```python
+  from river import tree
+  model = tree.ExtremelyFastDecisionTreeClassifier(
+       grace_period=100,
+       split_confidence=1e-5,
+       min_samples_reevaluate=100,
+       ...
+   )
+  ```
 
 * [Adaptive random forest (ARF)](https://riverml.xyz/dev/api/ensemble/AdaptiveRandomForestClassifier/) algorithm uses HTs as base learners and ADWIN as the drift detector for each tree to address concept drift. Through the drift detection process, the poor-performing base trees are replaced by new trees to fit the new concept.
+  
+   * *Heitor Murilo Gomes, Albert Bifet, Jesse Read, Jean Paul Barddal, Fabricio Enembreck, Bernhard Pfharinger, Geoff Holmes, Talel Abdessalem. Adaptive random forests for evolving data stream classification. In Machine Learning, DOI: 10.1007/s10994-017-5642-8, Springer, 2017.*
+  
+  ```python
+  from river import ensemble
+  model = ensemble.AdaptiveRandomForestClassifier(
+       n_models=3,
+       drift_detector=ADWIN(),
+       ...
+   )
+  ```
 
 * [Streaming Random Patches (SRP)](https://riverml.xyz/dev/api/ensemble/SRPClassifier/) uses the similar technology of ARF, but it uses the global subspace randomization strategy, instead of the local subspace randomization technique used by ARF. The global subspace randomization is a more flexible method that improves the diversity of base learners.
+  
+   * *Heitor Murilo Gomes, Jesse Read, Albert Bifet. Streaming Random Patches for Evolving Data Stream Classification. IEEE International Conference on Data Mining (ICDM), 2019.*
+  
+  ```python
+  from river import ensemble
+  base_model = tree.HoeffdingTreeClassifier(
+     grace_period=50, split_confidence=0.01,
+     ...
+   )
+  model = ensemble.SRPClassifier(
+     model=base_model, n_models=3, drift_detector=ADWIN(),
+     ...
+  )
+  ```
 
 * [Leverage bagging (LB)](https://riverml.xyz/dev/api/ensemble/LeveragingBaggingClassifier/) is another popular online ensemble that uses bootstrap samples to construct base learners. It uses Poisson distribution to increase the data diversity and leverage the bagging performance.
+  
+   * *Bifet A., Holmes G., Pfahringer B. (2010) Leveraging Bagging for Evolving Data Streams. In: Balcázar J.L., Bonchi F., Gionis A., Sebag M. (eds) Machine Learning and Knowledge Discovery in Databases. ECML PKDD 2010. Lecture Notes in Computer Science, vol 6321. Springer, Berlin, Heidelberg.*
+  
+  ```python
+  from river import ensemble
+  from river import linear_model
+  from river import preprocessing
+  model = ensemble.LeveragingBaggingClassifier(
+     model=(
+         preprocessing.StandardScaler() |
+         linear_model.LogisticRegression()
+     ),
+     n_models=3,
+     ...
+  )
+  ```
 
 
 ## Abstract of The Paper
