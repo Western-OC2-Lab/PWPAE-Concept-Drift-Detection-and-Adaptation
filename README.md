@@ -161,12 +161,12 @@ If you find this repository useful in your research, please cite this article as
 L. Yang, D. M. Manias, and A. Shami, “PWPAE: An Ensemble Framework for Concept Drift Adaptation in IoT Data Streams,” in *2021 IEEE Glob. Commun. Conf. (GLOBECOM)*, Madrid, Spain, Dec. 2021.
 
 ```
-@INPROCEEDINGS{1570723427,
+@INPROCEEDINGS{9685338,
   author={Yang, Li and Manias, Dimitrios Michael and Shami, Abdallah},
   booktitle={2021 IEEE Global Communications Conference (GLOBECOM)}, 
   title={PWPAE: An Ensemble Framework for Concept Drift Adaptation in IoT Data Streams}, 
   year={2021},
   pages={1-6},
-  doi={}
+  doi={10.1109/GLOBECOM46510.2021.9685338}
   }
 ```
