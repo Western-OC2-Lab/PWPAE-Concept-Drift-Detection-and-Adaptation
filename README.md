@@ -6,6 +6,8 @@ Organization: The Optimized Computing and Communications (OC2) Lab, ECE Departme
 
 This repository also introduces **concept drift definitions** and **online machine learning methods** for **data stream analytics** using the **[River](https://riverml.xyz/dev/)** library.  
 
+A complete **tutorial code** for the comprehensive and complete pipeline for **concept drift, online machine learning, and data stream analytics**, including dynamic data pre-processing, drift-based dynamic feature selection, dynamic model learning & selection, and online ensemble models, can be found in: [MSANA-Online-Data-Stream-Analytics-And-Concept-Drift-Adaptation](https://github.com/Western-OC2-Lab/MSANA-Online-Data-Stream-Analytics-And-Concept-Drift-Adaptation/edit/main/README.md)
+
 Another **tutorial code** for **concept drift, online machine learning, and data stream analytics** can be found in: [OASW-Concept-Drift-Detection-and-Adaptation](https://github.com/Western-OC2-Lab/OASW-Concept-Drift-Detection-and-Adaptation)
 
 <p float="left">
