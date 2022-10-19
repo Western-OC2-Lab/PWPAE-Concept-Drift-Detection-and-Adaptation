@@ -149,7 +149,7 @@ For the purpose of displaying the experimental results in Jupyter Notebook, the 
 * Python 3.6+
 * [Scikit-learn](https://scikit-learn.org/stable/)  
 * [LightGBM](https://lightgbm.readthedocs.io/en/latest/)
-* [River](https://riverml.xyz/dev/) 0.1.0
+* [River](https://riverml.xyz/dev/) 0.1.0, this old version is available at: [River 0.1.0](https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/tree/main/libraries)
 
 ## Contact-Info
 Please feel free to contact us for any questions or cooperation opportunities. We will be happy to help.
