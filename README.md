@@ -118,6 +118,10 @@ To address concept drift, effective methods should be able to detect concept dri
 ## Abstract of The Paper
 As the number of Internet of Things (IoT) devices and systems have surged, IoT data analytics techniques have been developed to detect malicious cyber-attacks and secure IoT systems; however, concept drift issues often occur in IoT data analytics, as IoT data is often dynamic data streams that change over time, causing model degradation and attack detection failure. This is because traditional data analytics models are static models that cannot adapt to data distribution changes. In this paper, we propose a Performance Weighted Probability Averaging Ensemble (PWPAE) framework for drift adaptive IoT anomaly detection through IoT data stream analytics. Experiments on two public datasets show the effectiveness of our proposed PWPAE method compared against state-of-the-art methods.
 
+<p float="left">
+  <img src="https://github.com/Western-OC2-Lab/PWPAE-Concept-Drift-Detection-and-Adaptation/blob/main/framework.jpg" width="500" />
+</p>
+
 ## Implementation 
 ### Online Learning/Concept Drift Adaptation Algorithms  
 * Adaptive Random Forest (ARF)
